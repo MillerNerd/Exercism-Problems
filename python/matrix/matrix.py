@@ -5,8 +5,8 @@ class Matrix:
     def __init__(self, matrix_string):
         self.arr2d = []
         arr1d = matrix_string.split('\n')
-        for i in range(len(arr1d)):
-            self.arr2d.append(list(map(int, arr1d[i].split())))
+        for i in arr1d:
+            self.arr2d.append(list(map(int, i.split())))
 
     def row(self, index):
         return self.arr2d[index-1]
