@@ -16,7 +16,7 @@ def recite(start_verse, end_verse):
             12: ("twelfth", "twelve Drummers Drumming, ")}
     song = []
     for verse in range(start_verse, end_verse + 1):
-        song.append("On the %s day of Christmas my true love gave to me: " % days[start_verse][0])
+        song.append("On the %s day of Christmas my true love gave to me: " % days[verse][0])
         for line in range(verse, 0, -1):
             if verse > 1 and line == 1:
                 song[-1] = song[-1] + "and " + days[line][1]
