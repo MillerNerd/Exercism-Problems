@@ -14,4 +14,11 @@ def recite(start_verse, end_verse):
             10: ("tenth", "ten Lords-a-Leaping, "),
             11: ("eleventh", "eleven Pipers Piping, "),
             12: ("twelfth", "twelve Drummers Drumming, ")}
-    return ["On the first day of Christmas my true love gave to me: a Partridge in a Pear Tree."]
+    song = ["On the %s day of Christmas my true love gave to me: " % days[start_verse][0]]
+    # print(song)
+    for verse in range(end_verse, start_verse-1, -1):
+        song[0] = song[0] + (days[verse][1])
+        # print(int(verse))
+    print(song)
+    return song
+    # return ["On the first day of Christmas my true love gave to me: a Partridge in a Pear Tree."]
