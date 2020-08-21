@@ -1,4 +1,4 @@
-import collections
+from collections import Counter
 import re
 
 
@@ -13,4 +13,4 @@ def count_words(sentence):
     # strip apostrophes, which leaves contractions/possessives but removes single-quotes
     answer = [a.strip("'") for a in answer]
     # count up matching words, returns dict
-    return collections.Counter(answer)
+    return Counter(answer)
