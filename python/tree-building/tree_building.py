@@ -21,7 +21,8 @@ def BuildTree(records):
             raise ValueError('Tree must start with id 0')
     trees = []
     parent = {}
-    for i in range(len(ordered_id)):
+    # print('\n', ordered_id, '\n', records, '\n')
+    for i in ordered_id:
         for j in records:
             if ordered_id[i] == j.record_id:
                 if j.record_id == 0:
@@ -32,8 +33,9 @@ def BuildTree(records):
                 if j.record_id == j.parent_id:
                     if j.record_id != 0:
                         raise ValueError('Tree is a cycle')
+                # print('\n', i, ordered_id[i], j.record_id)
                 trees.append(Node(ordered_id[i]))
-    for i in range(len(ordered_id)):
+    for i in ordered_id:
         for j in trees:
             if i == j.node_id:
                 parent = j
@@ -47,4 +49,4 @@ def BuildTree(records):
                         parent.children.append(child)
     if len(trees) > 0:
         return trees[0]
-    return None
+    return root
