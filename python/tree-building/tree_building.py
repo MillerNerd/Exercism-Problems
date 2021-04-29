@@ -34,7 +34,7 @@ def BuildTree(records):
                     if j.record_id != 0:
                         raise ValueError('Tree is a cycle')
                 # print('\n', i, ordered_id[i], j.record_id)
-                trees.append(Node(ordered_id[i]))
+                trees.append(Node(i))
     for i in ordered_id:
         for j in trees:
             if i == j.node_id:
