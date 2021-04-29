@@ -11,7 +11,9 @@ class Node:
 
 
 def BuildTree(records):
-    root = None
+    if not records:
+        return None
+    # root = None
     records.sort(key=lambda x: x.record_id)
     ordered_id = [i.record_id for i in records]
     if records:
@@ -47,6 +49,6 @@ def BuildTree(records):
                     if j.record_id == k.node_id:
                         child = k
                         parent.children.append(child)
-    if len(trees) > 0:
-        return trees[0]
-    return root
+    # if len(trees) > 0:
+    return trees[0]
+    # return root
