@@ -24,7 +24,7 @@ def BuildTree(records):
     # print('\n', ordered_id, '\n', records, '\n')
     for i in ordered_id:
         for j in records:
-            if ordered_id[i] == j.record_id:
+            if i == j.record_id:
                 if j.record_id == 0:
                     if j.parent_id != 0:
                         raise ValueError('Root node cannot have a parent')
