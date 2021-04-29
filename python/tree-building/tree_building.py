@@ -34,14 +34,7 @@ def BuildTree(records):
         parent = trees[i]
         for j in records:
             if j.parent_id == i:
-                # i is parent; j is child
-                # if trees[j.record_id] != 0:
-                #     parent.children.append(trees[j.record_id])
-                # for k in trees:
-                k = trees[j.record_id]
-                if j.record_id == k.node_id:
-                    if j.record_id == 0:
-                        continue
-                    child = k
-                    parent.children.append(child)
+                if j.record_id == 0:
+                    continue
+                parent.children.append(trees[j.record_id])
     return trees[0]
