@@ -21,7 +21,6 @@ def BuildTree(records):
         if ordered_id[0] != 0:
             raise ValueError('Tree must start with id 0')
     trees = []
-    parent = {}
     if records[0].parent_id != 0:
         raise ValueError('Root node cannot have a parent')
     for j in records:
