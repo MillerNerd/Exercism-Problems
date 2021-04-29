@@ -1,4 +1,5 @@
 def primes(limit):
+    assert limit > 0
     answer = list(range(2, limit + 1))
     for num in range(2, limit + 1):
         x = 2
