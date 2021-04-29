@@ -46,5 +46,5 @@ def BuildTree(records):
                         child = k
                         parent.children.append(child)
     if len(trees) > 0:
-        root = trees[0]
-    return root
+        return trees[0]
+    return None
