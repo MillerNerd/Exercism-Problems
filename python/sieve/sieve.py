@@ -1,16 +1,12 @@
 def primes(limit):
     answer = list(range(2, limit + 1))
-    num = 2
-    while num * num < limit:
-        if num not in answer:
-            num += 1
-            continue
+    for num in range(2, limit + 1):
         x = 2
-        while num * x < limit + num:
-            try:
-                answer.remove(num * x)
-            except:
-                pass
-            x += 1
-        num += 1
+        if num in answer:
+            while num * x < limit + num:
+                try:
+                    answer.remove(num * x)
+                except:
+                    pass
+                x += 1
     return answer
