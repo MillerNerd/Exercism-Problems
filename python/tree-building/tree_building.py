@@ -23,6 +23,7 @@ def BuildTree(records):
     trees = []
     if records[0].parent_id != 0:
         raise ValueError('Root node cannot have a parent')
+    # create Nodes, store in trees list
     for j in records:
         if j.record_id < j.parent_id:
             raise ValueError('Parent id must be lower than child id')
@@ -30,20 +31,9 @@ def BuildTree(records):
             if j.record_id != 0:
                 raise ValueError('Tree is a cycle')
         trees.append(Node(j.record_id))
-    # for j in records:
-    #     if j.record_id == 0:
-    #         continue
-    #     parent = trees[j.record_id]
-    #     parent.children.append(trees[j.record_id])
+    # add children to each node
     for j in records:
         if j.record_id == 0:
             continue
         trees[j.parent_id].children.append(trees[j.record_id])
-    # i is the parent
-    # for i in ordered_id:
-    #     for j in records:
-    #         if j.parent_id == i:
-    #             if j.record_id == 0:
-    #                 continue
-    #             trees[i].children.append(trees[j.record_id])
     return trees[0]
