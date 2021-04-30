@@ -30,11 +30,20 @@ def BuildTree(records):
             if j.record_id != 0:
                 raise ValueError('Tree is a cycle')
         trees.append(Node(j.record_id))
-    for i in ordered_id:
-        parent = trees[i]
-        for j in records:
-            if j.parent_id == i:
-                if j.record_id == 0:
-                    continue
-                parent.children.append(trees[j.record_id])
+    # for j in records:
+    #     if j.record_id == 0:
+    #         continue
+    #     parent = trees[j.record_id]
+    #     parent.children.append(trees[j.record_id])
+    for j in records:
+        if j.record_id == 0:
+            continue
+        trees[j.parent_id].children.append(trees[j.record_id])
+    # i is the parent
+    # for i in ordered_id:
+    #     for j in records:
+    #         if j.parent_id == i:
+    #             if j.record_id == 0:
+    #                 continue
+    #             trees[i].children.append(trees[j.record_id])
     return trees[0]
