@@ -14,11 +14,10 @@ def BuildTree(records):
     if not records:
         return None
     records.sort(key=lambda x: x.record_id)
-    if records:
-        if records[-1].record_id != len(records) - 1:
-            raise ValueError('Tree must be continuous')
-        if records[0].record_id != 0:
-            raise ValueError('Tree must start with id 0')
+    if records[-1].record_id != len(records) - 1:
+        raise ValueError('Tree must be continuous')
+    if records[0].record_id != 0:
+        raise ValueError('Tree must start with id 0')
     trees = []
     if records[0].parent_id != 0:
         raise ValueError('Root node cannot have a parent')
