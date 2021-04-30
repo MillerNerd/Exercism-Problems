@@ -18,9 +18,9 @@ def BuildTree(records):
         raise ValueError('Tree must be continuous')
     if records[0].record_id != 0:
         raise ValueError('Tree must start with id 0')
-    trees = []
     if records[0].parent_id != 0:
         raise ValueError('Root node cannot have a parent')
+    trees = []
     for j in records:
         if j.record_id < j.parent_id:
             raise ValueError('Parent id must be lower than child id')
